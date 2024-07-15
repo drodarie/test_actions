@@ -2,4 +2,4 @@
 Test python package to test Github actions
 """
 
-__version__ = "0.0.4"
+__version__ = "0.0.0"
