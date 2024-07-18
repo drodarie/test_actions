@@ -3,32 +3,35 @@ name: Create release
 on:
   push:
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - v[0-9]+.[0-9]+.[0-9]+
 
 jobs:
-  build:
-    name: Create Github Release
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Update CHANGELOG
+        id: changelog
+        uses: requarks/changelog-action@v1
         with:
-          fetch-depth: 0
-      - name: Check tag branch
-        uses: rickstaa/action-contains-tag@v1
-        id: contains_tag
-        with:
-          reference: "main"
-          tag: "${{ github.ref_name }}"
-      - name: Create Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           tag: ${{ github.ref_name }}
-        shell: bash
-        run: |
-          if [[ ${{ steps.contains_tag.outputs.retval }} == 'true' ]]; then
-            gh release create "$tag" \
-                  --repo="$GITHUB_REPOSITORY" \
-                  --title="$tag" \
-                  --generate-notes
-          fi
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          draft: false
+          makeLatest: true
+          name: ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.changes }}
+          token: ${{ github.token }}
+
+      - name: Commit CHANGELOG.md
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
+          file_pattern: CHANGELOG.md
