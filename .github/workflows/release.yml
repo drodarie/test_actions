@@ -34,7 +34,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: main
-          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ github.ref_name }} [skip ci]'
+          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }} [skip ci]'
           file_pattern: test_actions/__init__.py
 
       - uses: rickstaa/action-create-tag@v1
@@ -52,6 +52,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Pull commit of tag update
+        run: |
+          git pull origin main 
 
       - name: Update CHANGELOG
         id: changelog
