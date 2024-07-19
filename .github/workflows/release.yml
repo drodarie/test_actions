@@ -1,4 +1,4 @@
-name: Create release
+name: Bump version, create release and deploy
 
 on:
   push:
@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.semver.outputs.next }}
+      old_tag: ${{ steps.semver.outputs.current }}
 
     steps:
       - name: Checkout Code
@@ -23,6 +24,18 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: main
+      - name: Update __init__.py and pyproject.toml
+        run: |
+          replacev="\"${{steps.semver.outputs.next}}\""
+          newtag=$(echo $replacev | sed "s/v//g")
+          sed -i  "s/__version__ = .*/__version__ = $newtag/g" test_actions/__init__.py
+
+      - name: Commit version change
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ github.ref_name }} [skip ci]'
+          file_pattern: test_actions/__init__.py
 
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
@@ -40,20 +53,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get previous tag
-        id: previousTag
-        run: |
-          name=$(git --no-pager tag --sort=creatordate --merged ${{ needs.bump.outputs.tag }} | tail -2 | head -1)
-          echo "previousTag: $name"
-          echo "previousTag=$name" >> $GITHUB_ENV
-
       - name: Update CHANGELOG
         id: changelog
         uses: requarks/changelog-action@v1
         with:
           token: ${{ github.token }}
           fromTag: ${{ needs.bump.outputs.tag }}
-          toTag: ${{ env.previousTag }}
+          toTag: ${{ needs.bump.outputs.old_tag }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
