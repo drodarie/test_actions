@@ -24,12 +24,13 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: main
+
       - name: Bump version in Python project
         run: |
           oldv="${{ steps.semver.outputs.current }}"
           newv="${{steps.semver.outputs.next}}"
           # Bump the version, dropping the leading `v` with `${x:1}`
-          bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1}
+          bump-my-version bump --current-version=${oldv:1} --new-version=${newv:1}
 
   release:
     runs-on: ubuntu-latest
