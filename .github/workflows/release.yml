@@ -24,24 +24,12 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: main
-      - name: Update __init__.py and pyproject.toml
+      - name: Bump version in Python project
         run: |
-          replacev="\"${{steps.semver.outputs.next}}\""
-          newtag=$(echo $replacev | sed "s/v//g")
-          sed -i  "s/__version__ = .*/__version__ = $newtag/g" test_actions/__init__.py
-
-      - name: Commit version change
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          branch: main
-          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }} [skip ci]'
-          file_pattern: test_actions/__init__.py
-
-      - uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
-        with:
-          tag: ${{ steps.semver.outputs.next }}
-          github_token: ${{ github.token }}
+          oldv="${{ steps.semver.outputs.current }}"
+          newv="${{steps.semver.outputs.next}}"
+          # Bump the version, dropping the leading `v` with `${x:1}`
+          bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1}
 
   release:
     runs-on: ubuntu-latest
