@@ -25,18 +25,12 @@ jobs:
           token: ${{ github.token }}
           branch: main
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.11
-
       - name: Bump version in Python project
         run: |
-          pip install --upgrade pip bump-my-version
-          oldv="${{ steps.semver.outputs.current }}"
-          newv="${{steps.semver.outputs.next}}"
-          # Bump the version, dropping the leading `v` with `${x:1}`
-          bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1}
+          # Bump the version, dropping the leading `v` with `${x:1}` 
+          newtag=$(echo "${{steps.semver.outputs.next}:1}")
+          # Replacing the __version__ in bsb/__init__.py
+          sed -i  "s/__version__ =.*/__version__ = \"$newtag\"/g" test_actions/__init__.py
           
       - name: Commit version change
         uses: stefanzweifel/git-auto-commit-action@v4
