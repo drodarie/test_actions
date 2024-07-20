@@ -27,10 +27,9 @@ jobs:
 
       - name: Bump version in Python project
         run: |
-          # Bump the version, dropping the leading `v` with `${x:1}` 
-          newtag=$(echo "${{steps.semver.outputs.next}:1}")
-          # Replacing the __version__ in bsb/__init__.py
-          sed -i  "s/__version__ =.*/__version__ = \"$newtag\"/g" test_actions/__init__.py
+          newv="${{steps.semver.outputs.next}}"
+          # Replacing the __version__ in bsb/__init__.py, dropping the leading `v` with `${x:1}` 
+          sed -i  "s/__version__ =.*/__version__ = \"${newv:1}\"/g" test_actions/__init__.py
           
       - name: Commit version change
         uses: stefanzweifel/git-auto-commit-action@v4
