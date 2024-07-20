@@ -1,4 +1,10 @@
 
+## [v1.0.5] - 2024-07-20
+### :bug: Bug Fixes
+- [`a158a7e`](https://github.com/drodarie/test_actions/commit/a158a7e36cebeb653bafb227c31020323242b4e9) - revert changes for bump-my-version *(commit by [@drodarie](https://github.com/drodarie))*
+- [`862bd14`](https://github.com/drodarie/test_actions/commit/862bd1408810982394d72c009337e18c5fedd9f1) - cutting v command *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.0.4] - 2024-07-20
 ### :bug: Bug Fixes
 - [`12410f0`](https://github.com/drodarie/test_actions/commit/12410f0e079d99624da5addbf5bb41e377014d33) - test with bump-my-version *(commit by [@drodarie](https://github.com/drodarie))*
@@ -20,3 +26,4 @@
 [v1.0.1]: https://github.com/drodarie/test_actions/compare/v1.0.0...v1.0.1
 [v1.0.3]: https://github.com/drodarie/test_actions/compare/v1.0.2...v1.0.3
 [v1.0.4]: https://github.com/drodarie/test_actions/compare/v1.0.3...v1.0.4
+[v1.0.5]: https://github.com/drodarie/test_actions/compare/v1.0.4...v1.0.5
