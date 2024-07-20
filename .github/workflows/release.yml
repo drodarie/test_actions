@@ -25,8 +25,14 @@ jobs:
           token: ${{ github.token }}
           branch: main
 
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.11
+
       - name: Bump version in Python project
         run: |
+          pip install --upgrade pip bump-my-version
           oldv="${{ steps.semver.outputs.current }}"
           newv="${{steps.semver.outputs.next}}"
           # Bump the version, dropping the leading `v` with `${x:1}`

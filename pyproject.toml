@@ -24,8 +24,7 @@ test = [
 dev = [
     "pre-commit~=3.5",
     "black~=24.0",
-    "isort~=5.12",
-    "bump-my-version~=0.21"
+    "isort~=5.12"
 ]
 
 [tool.black]
