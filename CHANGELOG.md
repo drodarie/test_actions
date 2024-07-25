@@ -1,4 +1,9 @@
 
+## [v1.1.0] - 2024-07-25
+### :sparkles: New Features
+- [`3c52654`](https://github.com/drodarie/test_actions/commit/3c526547d4ec05b69cfbb81a0b7fdccfe011c63f) - bring back bump-my-version. test with slightly different command. *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.0.5] - 2024-07-20
 ### :bug: Bug Fixes
 - [`a158a7e`](https://github.com/drodarie/test_actions/commit/a158a7e36cebeb653bafb227c31020323242b4e9) - revert changes for bump-my-version *(commit by [@drodarie](https://github.com/drodarie))*
@@ -27,3 +32,4 @@
 [v1.0.3]: https://github.com/drodarie/test_actions/compare/v1.0.2...v1.0.3
 [v1.0.4]: https://github.com/drodarie/test_actions/compare/v1.0.3...v1.0.4
 [v1.0.5]: https://github.com/drodarie/test_actions/compare/v1.0.4...v1.0.5
+[v1.1.0]: https://github.com/drodarie/test_actions/compare/v1.0.5...v1.1.0
