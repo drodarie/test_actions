@@ -1,4 +1,9 @@
 
+## [v1.1.1] - 2024-07-30
+### :bug: Bug Fixes
+- [`a471235`](https://github.com/drodarie/test_actions/commit/a47123513ae76bfa6ebf011ad36945a03d144efb) - simplify pre-commit install hooks *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.1.0] - 2024-07-25
 ### :sparkles: New Features
 - [`3c52654`](https://github.com/drodarie/test_actions/commit/3c526547d4ec05b69cfbb81a0b7fdccfe011c63f) - bring back bump-my-version. test with slightly different command. *(commit by [@drodarie](https://github.com/drodarie))*
@@ -33,3 +38,4 @@
 [v1.0.4]: https://github.com/drodarie/test_actions/compare/v1.0.3...v1.0.4
 [v1.0.5]: https://github.com/drodarie/test_actions/compare/v1.0.4...v1.0.5
 [v1.1.0]: https://github.com/drodarie/test_actions/compare/v1.0.5...v1.1.0
+[v1.1.1]: https://github.com/drodarie/test_actions/compare/v1.1.0...v1.1.1
