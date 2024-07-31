@@ -50,11 +50,11 @@ jobs:
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email github-actions[bot]@users.noreply.github.com
-          git commit -am "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
+          git commit -am "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }} [skip ci]"
           git push origin main
 
-      - uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
+      - name: Create tag
+        uses: rickstaa/action-create-tag@v1
         with:
           tag: ${{ steps.semver.outputs.next }}
           github_token: ${{ steps.app-token.outputs.token }}
@@ -98,7 +98,7 @@ jobs:
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email github-actions[bot]@users.noreply.github.com
-          git commit -am 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
+          git commit -am 'docs: update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
           git push origin main
 
   deploy:
