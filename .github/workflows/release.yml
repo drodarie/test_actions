@@ -11,6 +11,7 @@ jobs:
     outputs:
       tag: ${{ steps.semver.outputs.next }}
       old_tag: ${{ steps.semver.outputs.current }}
+      app_token: ${{ steps.app-token.outputs.token }}
     environment: codegen
     steps:
       - name: Create Github token
@@ -47,13 +48,10 @@ jobs:
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
 
       - name: Commit & Push changes
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email github-actions[bot]@users.noreply.github.com
-          git commit -am "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
-          git push origin main
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }} [skip ci]'
 
       - name: Create tag
         uses: rickstaa/action-create-tag@v1
@@ -70,7 +68,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ needs.bump.outputs.app_token }}
 
       - name: Pull commit of tag update
         run: |
@@ -80,7 +78,7 @@ jobs:
         id: changelog
         uses: requarks/changelog-action@v1
         with:
-          token: ${{ github.token }}
+          token: ${{ needs.bump.outputs.app_token }}
           fromTag: ${{ needs.bump.outputs.tag }}
           toTag: ${{ needs.bump.outputs.old_tag }}
 
@@ -93,16 +91,14 @@ jobs:
           tag: ${{ needs.bump.outputs.tag }}
           name: ${{ needs.bump.outputs.tag }}
           body: ${{ steps.changelog.outputs.changes }}
-          token: ${{ github.token }}
+          token: ${{ needs.bump.outputs.app_token }}
 
       - name: Commit CHANGELOG.md
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email github-actions[bot]@users.noreply.github.com
-          git commit -am 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
-          git push origin main
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
+          file_pattern: CHANGELOG.md
 
   deploy:
     runs-on: ubuntu-latest
