@@ -24,12 +24,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get GitHub App User ID
-        id: get-user-id
-        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-
       - name: Get Next Version
         id: semver
         uses: ietf-tools/semver-action@v1
@@ -51,12 +45,13 @@ jobs:
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
 
       - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ steps.app-token.outputs.token }}
-          author_name: ${{ steps.app-token.outputs.app-slug }}[bot]
-          author_email: "${{ steps.get-user-id.outputs.user-id }}${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com"
-          message: "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git commit -am "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
+          git push origin main
 
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
@@ -98,11 +93,13 @@ jobs:
           token: ${{ github.token }}
 
       - name: Commit CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          branch: main
-          commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
-          file_pattern: CHANGELOG.md
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git commit -am 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
+          git push origin main
 
   deploy:
     runs-on: ubuntu-latest
