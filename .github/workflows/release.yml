@@ -46,7 +46,7 @@ jobs:
 
       - name: Commit & Push changes
         env:
-          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email github-actions[bot]@users.noreply.github.com
@@ -93,11 +93,13 @@ jobs:
           token: ${{ github.token }}
 
       - name: Commit CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          branch: main
-          commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
-          file_pattern: CHANGELOG.md
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git commit -am 'docs: update CHANGELOG.md for ${{ github.ref_name }}'
+          git push origin main
 
   deploy:
     runs-on: ubuntu-latest
