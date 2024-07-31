@@ -1,4 +1,9 @@
 
+## [v1.1.5] - 2024-07-31
+### :bug: Bug Fixes
+- [`07943b0`](https://github.com/drodarie/test_actions/commit/07943b009b677e0a2c31638c8ff0f333717307ac) - add env. *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.1.1] - 2024-07-30
 ### :bug: Bug Fixes
 - [`a471235`](https://github.com/drodarie/test_actions/commit/a47123513ae76bfa6ebf011ad36945a03d144efb) - simplify pre-commit install hooks *(commit by [@drodarie](https://github.com/drodarie))*
@@ -39,3 +44,4 @@
 [v1.0.5]: https://github.com/drodarie/test_actions/compare/v1.0.4...v1.0.5
 [v1.1.0]: https://github.com/drodarie/test_actions/compare/v1.0.5...v1.1.0
 [v1.1.1]: https://github.com/drodarie/test_actions/compare/v1.1.0...v1.1.1
+[v1.1.5]: https://github.com/drodarie/test_actions/compare/v1.1.4...v1.1.5
