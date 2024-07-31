@@ -24,6 +24,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
       - name: Get Next Version
         id: semver
         uses: ietf-tools/semver-action@v1
@@ -43,11 +49,13 @@ jobs:
           newv="${{steps.semver.outputs.next}}"
           # Bump the version, dropping the leading `v` with `${x:1}`
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
-          
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ steps.app-token.outputs.token }}
+          author_name: ${{ steps.app-token.outputs.app-slug }}[bot]
+          author_email: "${{ steps.get-user-id.outputs.user-id }}${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com"
           message: "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
 
       - uses: rickstaa/action-create-tag@v1
