@@ -45,11 +45,12 @@ jobs:
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
           
       - name: Commit version change
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: main
-          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}'
-          token: ${{ steps.app-token.outputs.token }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
+          git commit -am "docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }}"
+          git push
 
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
