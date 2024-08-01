@@ -1,12 +1,18 @@
 name: PR Conventional Commit Validation
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, edited]
+on: [pull_request]
 
 jobs:
+  isort:
+    uses: ./.github/workflows/checks/isort.yml
+  black:
+    uses: ./.github/workflows/checks/black.yml
+  build:
+    uses: ./.github/workflows/checks/build.yml
+
   validate-pr-title:
     runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'synchronized' || github.event.action == 'reopened' || github.event.action == 'edited'
     steps:
       - name: PR Conventional Commit Validation
         uses:  ytanikin/PRConventionalCommits@1.2.0
