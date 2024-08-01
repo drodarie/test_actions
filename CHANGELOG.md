@@ -1,4 +1,9 @@
 
+## [v1.2.0] - 2024-08-01
+### :sparkles: New Features
+- [`05ed077`](https://github.com/drodarie/test_actions/commit/05ed077b412cd6675d5fa1114b7cfb36c9701851) - add black and isort *(PR [#12](https://github.com/drodarie/test_actions/pull/12) by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.1.5] - 2024-07-31
 ### :bug: Bug Fixes
 - [`07943b0`](https://github.com/drodarie/test_actions/commit/07943b009b677e0a2c31638c8ff0f333717307ac) - add env. *(commit by [@drodarie](https://github.com/drodarie))*
@@ -45,3 +50,4 @@
 [v1.1.0]: https://github.com/drodarie/test_actions/compare/v1.0.5...v1.1.0
 [v1.1.1]: https://github.com/drodarie/test_actions/compare/v1.1.0...v1.1.1
 [v1.1.5]: https://github.com/drodarie/test_actions/compare/v1.1.4...v1.1.5
+[v1.2.0]: https://github.com/drodarie/test_actions/compare/v1.1.5...v1.2.0
