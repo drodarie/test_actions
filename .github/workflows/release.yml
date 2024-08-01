@@ -7,11 +7,11 @@ on:
 
 jobs:
   isort:
-    uses: ./.github/workflows/checks/isort.yml
+    uses: ./.github/workflows/isort.yml
   black:
-    uses: ./.github/workflows/checks/black.yml
+    uses: ./.github/workflows/black.yml
   build:
-    uses: ./.github/workflows/checks/build.yml
+    uses: ./.github/workflows/build.yml
 
   bump:
     runs-on: ubuntu-latest
