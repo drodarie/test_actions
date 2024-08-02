@@ -1,4 +1,9 @@
 
+## [v1.2.2] - 2024-08-02
+### :bug: Bug Fixes
+- [`93ae6ad`](https://github.com/drodarie/test_actions/commit/93ae6ad86496900f9d45c404964c5a40bd1f3cf5) - use OIDC for deployment on test.pypi *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.1] - 2024-08-02
 ### :bug: Bug Fixes
 - [`bba7a5b`](https://github.com/drodarie/test_actions/commit/bba7a5b13fb80e4c2b503bb181ec40702db83171) - use OIDC for deployment on test.pypi *(PR [#13](https://github.com/drodarie/test_actions/pull/13) by [@drodarie](https://github.com/drodarie))*
@@ -57,3 +62,4 @@
 [v1.1.5]: https://github.com/drodarie/test_actions/compare/v1.1.4...v1.1.5
 [v1.2.0]: https://github.com/drodarie/test_actions/compare/v1.1.5...v1.2.0
 [v1.2.1]: https://github.com/drodarie/test_actions/compare/v1.2.0...v1.2.1
+[v1.2.2]: https://github.com/drodarie/test_actions/compare/v1.2.1...v1.2.2
