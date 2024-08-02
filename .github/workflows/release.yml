@@ -19,7 +19,6 @@ jobs:
     outputs:
       tag: ${{ steps.semver.outputs.next }}
       old_tag: ${{ steps.semver.outputs.current }}
-    environment: codegen
     steps:
       - name: Create Github token
         uses: actions/create-github-app-token@v1
@@ -69,7 +68,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: bump
-    environment: codegen
     steps:
       - name: Create Github token
         uses: actions/create-github-app-token@v1
@@ -117,7 +115,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: release
-    environment: codegen
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/drodarie_test_actions
     permissions:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
 
