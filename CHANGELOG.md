@@ -1,4 +1,9 @@
 
+## [v1.2.1] - 2024-08-02
+### :bug: Bug Fixes
+- [`bba7a5b`](https://github.com/drodarie/test_actions/commit/bba7a5b13fb80e4c2b503bb181ec40702db83171) - use OIDC for deployment on test.pypi *(PR [#13](https://github.com/drodarie/test_actions/pull/13) by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.0] - 2024-08-01
 ### :sparkles: New Features
 - [`05ed077`](https://github.com/drodarie/test_actions/commit/05ed077b412cd6675d5fa1114b7cfb36c9701851) - add black and isort *(PR [#12](https://github.com/drodarie/test_actions/pull/12) by [@drodarie](https://github.com/drodarie))*
@@ -51,3 +56,4 @@
 [v1.1.1]: https://github.com/drodarie/test_actions/compare/v1.1.0...v1.1.1
 [v1.1.5]: https://github.com/drodarie/test_actions/compare/v1.1.4...v1.1.5
 [v1.2.0]: https://github.com/drodarie/test_actions/compare/v1.1.5...v1.2.0
+[v1.2.1]: https://github.com/drodarie/test_actions/compare/v1.2.0...v1.2.1
