@@ -1,4 +1,9 @@
 
+## [v1.2.3] - 2024-08-02
+### :bug: Bug Fixes
+- [`3a04c09`](https://github.com/drodarie/test_actions/commit/3a04c09385817006723ec8f4e12bff53bd0466f0) - remove env *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.2] - 2024-08-02
 ### :bug: Bug Fixes
 - [`93ae6ad`](https://github.com/drodarie/test_actions/commit/93ae6ad86496900f9d45c404964c5a40bd1f3cf5) - use OIDC for deployment on test.pypi *(commit by [@drodarie](https://github.com/drodarie))*
@@ -63,3 +68,4 @@
 [v1.2.0]: https://github.com/drodarie/test_actions/compare/v1.1.5...v1.2.0
 [v1.2.1]: https://github.com/drodarie/test_actions/compare/v1.2.0...v1.2.1
 [v1.2.2]: https://github.com/drodarie/test_actions/compare/v1.2.1...v1.2.2
+[v1.2.3]: https://github.com/drodarie/test_actions/compare/v1.2.2...v1.2.3
