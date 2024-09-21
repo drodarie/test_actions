@@ -1,4 +1,9 @@
 
+## [v1.2.4] - 2024-09-21
+### :bug: Bug Fixes
+- [`260adda`](https://github.com/drodarie/test_actions/commit/260adda0dffc28ef337028968a3cd5f5167ce1a0) - enforce tests for external PRs   *(PR [#14](https://github.com/drodarie/test_actions/pull/14) by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.3] - 2024-08-02
 ### :bug: Bug Fixes
 - [`3a04c09`](https://github.com/drodarie/test_actions/commit/3a04c09385817006723ec8f4e12bff53bd0466f0) - remove env *(commit by [@drodarie](https://github.com/drodarie))*
@@ -69,3 +74,4 @@
 [v1.2.1]: https://github.com/drodarie/test_actions/compare/v1.2.0...v1.2.1
 [v1.2.2]: https://github.com/drodarie/test_actions/compare/v1.2.1...v1.2.2
 [v1.2.3]: https://github.com/drodarie/test_actions/compare/v1.2.2...v1.2.3
+[v1.2.4]: https://github.com/drodarie/test_actions/compare/v1.2.3...v1.2.4
