@@ -1,4 +1,9 @@
 
+## [v1.2.5] - 2024-09-21
+### :bug: Bug Fixes
+- [`1e93c39`](https://github.com/drodarie/test_actions/commit/1e93c395d02b16085abebd3b260e5090b161a004) - variables conditions for PR checks. *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.4] - 2024-09-21
 ### :bug: Bug Fixes
 - [`260adda`](https://github.com/drodarie/test_actions/commit/260adda0dffc28ef337028968a3cd5f5167ce1a0) - enforce tests for external PRs   *(PR [#14](https://github.com/drodarie/test_actions/pull/14) by [@drodarie](https://github.com/drodarie))*
@@ -75,3 +80,4 @@
 [v1.2.2]: https://github.com/drodarie/test_actions/compare/v1.2.1...v1.2.2
 [v1.2.3]: https://github.com/drodarie/test_actions/compare/v1.2.2...v1.2.3
 [v1.2.4]: https://github.com/drodarie/test_actions/compare/v1.2.3...v1.2.4
+[v1.2.5]: https://github.com/drodarie/test_actions/compare/v1.2.4...v1.2.5
