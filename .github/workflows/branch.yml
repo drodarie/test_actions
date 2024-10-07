@@ -3,8 +3,8 @@ name: Check branch commit
 on:
   push:
     branches:
-      - '**'        # matches every branch
-      - '!main'
+      - '**'  # matches every branch ...
+      - '!main'  # ... that is not main
 
 jobs:
   isort:
