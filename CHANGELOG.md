@@ -1,4 +1,10 @@
 
+## [v1.2.6] - 2024-10-07
+### :bug: Bug Fixes
+- [`a02d6f3`](https://github.com/drodarie/test_actions/commit/a02d6f34817b4603f02d358ed9ff7983b61a1f20) - add workflow_dispatch to release *(PR [#15](https://github.com/drodarie/test_actions/pull/15) by [@filimarc](https://github.com/filimarc))*
+- [`2ab1c76`](https://github.com/drodarie/test_actions/commit/2ab1c76aafd6895335de59cccabd76fa11878193) - External PR *(PR [#16](https://github.com/drodarie/test_actions/pull/16) by [@filimarc](https://github.com/filimarc))*
+
+
 ## [v1.2.5] - 2024-09-21
 ### :bug: Bug Fixes
 - [`1e93c39`](https://github.com/drodarie/test_actions/commit/1e93c395d02b16085abebd3b260e5090b161a004) - variables conditions for PR checks. *(commit by [@drodarie](https://github.com/drodarie))*
@@ -81,3 +87,4 @@
 [v1.2.3]: https://github.com/drodarie/test_actions/compare/v1.2.2...v1.2.3
 [v1.2.4]: https://github.com/drodarie/test_actions/compare/v1.2.3...v1.2.4
 [v1.2.5]: https://github.com/drodarie/test_actions/compare/v1.2.4...v1.2.5
+[v1.2.6]: https://github.com/drodarie/test_actions/compare/v1.2.5...v1.2.6
