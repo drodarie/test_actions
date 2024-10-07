@@ -1,4 +1,11 @@
 
+## [v1.2.7] - 2024-10-07
+### :bug: Bug Fixes
+- [`7880970`](https://github.com/drodarie/test_actions/commit/7880970fcbd92ee608b29d6518f8c19b227a2304) - add parentheses for condition on internal PR. *(PR [#17](https://github.com/drodarie/test_actions/pull/17) by [@drodarie](https://github.com/drodarie))*
+- [`17e851a`](https://github.com/drodarie/test_actions/commit/17e851ad98f75e5f2dc711c041c4a25bbb6a7b3a) - test with push webhook. *(PR [#18](https://github.com/drodarie/test_actions/pull/18) by [@drodarie](https://github.com/drodarie))*
+- [`7debcdd`](https://github.com/drodarie/test_actions/commit/7debcdd91d7a7612bf84bd6f8bf635073db143ed) - remove conditions on release *(PR [#19](https://github.com/drodarie/test_actions/pull/19) by [@filimarc](https://github.com/filimarc))*
+
+
 ## [v1.2.6] - 2024-10-07
 ### :bug: Bug Fixes
 - [`a02d6f3`](https://github.com/drodarie/test_actions/commit/a02d6f34817b4603f02d358ed9ff7983b61a1f20) - add workflow_dispatch to release *(PR [#15](https://github.com/drodarie/test_actions/pull/15) by [@filimarc](https://github.com/filimarc))*
@@ -88,3 +95,4 @@
 [v1.2.4]: https://github.com/drodarie/test_actions/compare/v1.2.3...v1.2.4
 [v1.2.5]: https://github.com/drodarie/test_actions/compare/v1.2.4...v1.2.5
 [v1.2.6]: https://github.com/drodarie/test_actions/compare/v1.2.5...v1.2.6
+[v1.2.7]: https://github.com/drodarie/test_actions/compare/v1.2.6...v1.2.7
