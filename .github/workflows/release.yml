@@ -45,7 +45,7 @@ jobs:
 
   tag_release:
     needs: [bump]
-    if: ${{ needs.bump.outputs.tag != needs.bump.outputs.old_tag}}
+    if: ${{ needs.bump.outputs.tag != ''}}
     runs-on: ubuntu-latest
     steps:
       - name: Create Github token
@@ -71,8 +71,6 @@ jobs:
           pip install --upgrade pip bump-my-version
           oldv="${{ needs.bump.outputs.old_tag }}"
           newv="${{needs.bump.outputs.tag}}"
-          echo ${oldv:1}
-          echo ${newv:1}
           # Bump the version, dropping the leading `v` with `${x:1}`
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
 
