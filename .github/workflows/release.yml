@@ -45,6 +45,7 @@ jobs:
 
   tag_release:
     needs: [bump]
+    if: ${{ needs.bump.outputs.tag != needs.bump.outputs.old_tag}}
     runs-on: ubuntu-latest
     steps:
       - name: Create Github token
