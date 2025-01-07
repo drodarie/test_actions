@@ -69,8 +69,10 @@ jobs:
       - name: Bump version in Python project
         run: |
           pip install --upgrade pip bump-my-version
-          oldv="${{ needs.bump.outputs.tag }}"
-          newv="${{needs.bump.outputs.old_tag}}"
+          oldv="${{ needs.bump.outputs.old_tag }}"
+          newv="${{needs.bump.outputs.tag}}"
+          echo ${oldv:1}
+          echo ${newv:1}
           # Bump the version, dropping the leading `v` with `${x:1}`
           bump-my-version replace --current-version=${oldv:1} --new-version=${newv:1} pyproject.toml
 
@@ -78,12 +80,12 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: main
-          commit_message: 'docs: bump version: ${{ steps.semver.outputs.current }} → ${{ steps.semver.outputs.next }} [skip ci]'
+          commit_message: 'docs: bump version: ${{ needs.bump.outputs.old_tag }} → ${{ needs.bump.outputs.tag }} [skip ci]'
 
       - name: Create tag
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${{ steps.semver.outputs.next }}
+          tag: ${{ needs.bump.outputs.tag }}
           github_token: ${{ steps.app-token.outputs.token }}
 
   release:
