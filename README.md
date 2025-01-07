@@ -1,2 +1,2 @@
 # test_actions
-Test Github actions with python project
+Test Github actions for python project
