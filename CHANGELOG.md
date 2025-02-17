@@ -1,4 +1,9 @@
 
+## [v1.3.0] - 2025-02-17
+### :sparkles: New Features
+- [`cce1513`](https://github.com/drodarie/test_actions/commit/cce151316247d4fcd9eab4d928f8402125292ee1) - migrate to poetry *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.2.8] - 2025-01-07
 ### :bug: Bug Fixes
 - [`e326a3c`](https://github.com/drodarie/test_actions/commit/e326a3c73ba7f7431bc5e264f714a10363d90623) - test for bump *(commit by [@drodarie](https://github.com/drodarie))*
@@ -102,3 +107,4 @@
 [v1.2.6]: https://github.com/drodarie/test_actions/compare/v1.2.5...v1.2.6
 [v1.2.7]: https://github.com/drodarie/test_actions/compare/v1.2.6...v1.2.7
 [v1.2.8]: https://github.com/drodarie/test_actions/compare/v1.2.7...v1.2.8
+[v1.3.0]: https://github.com/drodarie/test_actions/compare/v1.2.8...v1.3.0
