@@ -1,4 +1,9 @@
 
+## [v1.4.1] - 2025-04-13
+### :bug: Bug Fixes
+- [`41fac1a`](https://github.com/drodarie/test_actions/commit/41fac1a1cf15e69b893c5b73a00b36069ea1789f) - refactor package name to publish to pypi *(commit by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.4.0] - 2025-04-13
 ### :sparkles: New Features
 - [`31ac6c6`](https://github.com/drodarie/test_actions/commit/31ac6c671179d4fc6c93ee58254b4ee26cefeedc) - uv, ruff and pytest  *(PR [#21](https://github.com/drodarie/test_actions/pull/21) by [@drodarie](https://github.com/drodarie))*
@@ -114,3 +119,4 @@
 [v1.2.8]: https://github.com/drodarie/test_actions/compare/v1.2.7...v1.2.8
 [v1.3.0]: https://github.com/drodarie/test_actions/compare/v1.2.8...v1.3.0
 [v1.4.0]: https://github.com/drodarie/test_actions/compare/v1.3.0...v1.4.0
+[v1.4.1]: https://github.com/drodarie/test_actions/compare/v1.4.0...v1.4.1
