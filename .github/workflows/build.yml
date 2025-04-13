@@ -30,4 +30,4 @@ jobs:
           pip install .[test]
       - name: Run tests & coverage
         run: |
-          coverage run -p -m unittest discover -v -s ./tests
+          pytest .

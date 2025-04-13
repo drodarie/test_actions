@@ -18,15 +18,11 @@ jobs:
         run: |
           echo "LOCAL_PR=${{ env.LOCAL_PR }}" >> $GITHUB_OUTPUT
 
-  isort:
+  ruff:
     needs: variables
     # if PR is external, trigger the tests on push or new PR
     if: ${{ needs.variables.outputs.LOCAL_PR == 'false'}}
-    uses: ./.github/workflows/isort.yml
-  black:
-    needs: variables
-    if: ${{ needs.variables.outputs.LOCAL_PR == 'false' }}
-    uses: ./.github/workflows/black.yml
+    uses: ./.github/workflows/ruff.yml
   build:
     needs: variables
     if: ${{ needs.variables.outputs.LOCAL_PR == 'false' }}
