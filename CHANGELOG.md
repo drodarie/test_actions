@@ -1,4 +1,9 @@
 
+## [v1.4.0] - 2025-04-13
+### :sparkles: New Features
+- [`31ac6c6`](https://github.com/drodarie/test_actions/commit/31ac6c671179d4fc6c93ee58254b4ee26cefeedc) - uv, ruff and pytest  *(PR [#21](https://github.com/drodarie/test_actions/pull/21) by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.3.0] - 2025-02-17
 ### :sparkles: New Features
 - [`cce1513`](https://github.com/drodarie/test_actions/commit/cce151316247d4fcd9eab4d928f8402125292ee1) - migrate to poetry *(commit by [@drodarie](https://github.com/drodarie))*
@@ -108,3 +113,4 @@
 [v1.2.7]: https://github.com/drodarie/test_actions/compare/v1.2.6...v1.2.7
 [v1.2.8]: https://github.com/drodarie/test_actions/compare/v1.2.7...v1.2.8
 [v1.3.0]: https://github.com/drodarie/test_actions/compare/v1.2.8...v1.3.0
+[v1.4.0]: https://github.com/drodarie/test_actions/compare/v1.3.0...v1.4.0
