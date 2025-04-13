@@ -1,10 +1,10 @@
-name: Isort
+name: Ruff
 
 on: [workflow_call]
 
 jobs:
-  isort:
+  ruff:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: isort/isort-action@master
+      - uses: astral-sh/ruff-action@v3

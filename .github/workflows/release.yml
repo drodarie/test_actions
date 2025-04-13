@@ -1,4 +1,4 @@
-name: Bump version, create release and deploy
+name: Build, test, deploy
 
 on:
   push:
@@ -7,15 +7,13 @@ on:
 
 
 jobs:
-  isort:
-    uses: ./.github/workflows/isort.yml
-  black:
-    uses: ./.github/workflows/black.yml
+  ruff:
+    uses: ./.github/workflows/ruff.yml
   build:
     uses: ./.github/workflows/build.yml
 
   bump:
-    needs: [isort, black, build]
+    needs: [ruff, build]
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.semver.outputs.next }}
@@ -23,7 +21,7 @@ jobs:
 
     steps:
       - name: Create Github token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ vars.CODEGEN_APP_ID }}
@@ -49,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Github token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ vars.CODEGEN_APP_ID }}
@@ -92,7 +90,7 @@ jobs:
 
     steps:
       - name: Create Github token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ vars.CODEGEN_APP_ID }}
@@ -144,7 +142,7 @@ jobs:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
       - name: Create Github token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ vars.CODEGEN_APP_ID }}
@@ -173,3 +171,5 @@ jobs:
 
       - name: Publish package distributions to Test.PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
