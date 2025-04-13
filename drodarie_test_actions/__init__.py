@@ -2,7 +2,7 @@
 Test python package to test Github actions
 """
 
-__version__ = "1.4.0"
+__version__ = "1.4.1"
 
 import nrrd
 import numpy as np
