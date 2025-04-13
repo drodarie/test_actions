@@ -1,4 +1,4 @@
-name: Check branch commit
+name: Ruff
 
 on:
   push:
