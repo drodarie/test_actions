@@ -1,4 +1,9 @@
 
+## [v1.4.2] - 2025-06-17
+### :bug: Bug Fixes
+- [`932a5b4`](https://github.com/drodarie/test_actions/commit/932a5b45326f59c4598a2dc843cc9363455cf913) - use coverage instead of pytest *(PR [#22](https://github.com/drodarie/test_actions/pull/22) by [@drodarie](https://github.com/drodarie))*
+
+
 ## [v1.4.1] - 2025-04-13
 ### :bug: Bug Fixes
 - [`41fac1a`](https://github.com/drodarie/test_actions/commit/41fac1a1cf15e69b893c5b73a00b36069ea1789f) - refactor package name to publish to pypi *(commit by [@drodarie](https://github.com/drodarie))*
@@ -120,3 +125,4 @@
 [v1.3.0]: https://github.com/drodarie/test_actions/compare/v1.2.8...v1.3.0
 [v1.4.0]: https://github.com/drodarie/test_actions/compare/v1.3.0...v1.4.0
 [v1.4.1]: https://github.com/drodarie/test_actions/compare/v1.4.0...v1.4.1
+[v1.4.2]: https://github.com/drodarie/test_actions/compare/v1.4.1...v1.4.2
